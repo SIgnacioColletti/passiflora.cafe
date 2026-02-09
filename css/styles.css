@@ -11,7 +11,11 @@
 
   --font-primary: "Georgia", serif;
   --font-secondary: "Arial", sans-serif;
-  --transition: all 0.4s ease;
+
+  /* CAMBIO 1: Optimización de transición (específica en vez de 'all') */
+  --transition:
+    transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 /* ========== RESET ========== */
@@ -91,6 +95,7 @@ p {
   top: 0;
   z-index: 1000;
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .header .container {
@@ -195,7 +200,7 @@ p {
   box-shadow: 0 8px 20px rgba(221, 42, 123, 0.4);
 }
 
-/* ========== HERO FULLSCREEN CON IMAGEN DE FONDO ========== */
+/* ========== HERO FULLSCREEN ========== */
 .hero-fullscreen {
   position: relative;
   height: 100vh;
@@ -203,7 +208,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1920&h=1080&fit=crop");
+  background-image: url("https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1600&q=80");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -262,7 +267,7 @@ p {
 }
 
 .btn-hero {
-  background-color: rgba(114, 129, 86, 0.9); /* #728156 */
+  background-color: rgba(114, 129, 86, 0.9);
   color: white;
   padding: 1rem 3rem;
   border-radius: 50px;
@@ -273,7 +278,7 @@ p {
 }
 
 .btn-hero:hover {
-  background-color: rgba(136, 151, 108, 1); /* #88976C */
+  background-color: rgba(136, 151, 108, 1);
   transform: translateY(-3px);
 }
 
@@ -327,7 +332,7 @@ p {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-/* ========== INFO SECTION (SIN ESPACIO CON FOOTER) ========== */
+/* ========== INFO SECTION ========== */
 .info {
   padding: 5rem 0 3rem 0;
   background-color: var(--color-accent);
@@ -371,7 +376,7 @@ p {
   width: 100%;
 }
 
-/* ========== FOOTER (MISMO FONDO QUE INFO) ========== */
+/* ========== FOOTER ========== */
 .footer {
   background-color: var(--color-accent);
   padding: 3rem 0 2rem 0;
@@ -446,7 +451,6 @@ p {
   box-shadow: 0 5px 15px rgba(221, 42, 123, 0.4);
 }
 
-/* Botón volver arriba */
 .back-to-top {
   display: block;
   margin: 2rem auto;
@@ -466,7 +470,6 @@ p {
   box-shadow: 0 5px 15px rgba(139, 157, 131, 0.3);
 }
 
-/* Copyright */
 .footer-bottom {
   text-align: center;
   padding-top: 1.5rem;
@@ -515,6 +518,8 @@ p {
   overflow: hidden;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
   transition: var(--transition);
+  /* CAMBIO 2: Ayuda al celular a renderizar la card antes de mostrarla */
+  will-change: transform;
 }
 
 .menu-item:hover {
@@ -589,6 +594,15 @@ p {
   .hero-fullscreen {
     min-height: 600px;
     background-attachment: scroll;
+    /* CAMBIO 3: Imagen más pequeña para que cargue instantáneo en celular */
+    background-image: url("https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&q=80");
+  }
+
+  /* CAMBIO 4: Quitar el blur en móvil porque traba el renderizado de la lista */
+  .header {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background-color: #ffffff;
   }
 
   .hero-content-center h1 {
@@ -639,7 +653,7 @@ p {
     font-size: 2rem;
   }
 }
-/* ========== MENU STYLES ADICIONALES ========== */
+
 .menu-note {
   text-align: center;
   font-style: italic;
@@ -654,6 +668,7 @@ p {
   margin-bottom: 0.8rem;
   line-height: 1.5;
 }
+
 /* ========== REVIEWS SECTION ========== */
 .reviews {
   padding: 5rem 0;
@@ -770,7 +785,6 @@ p {
   text-align: center;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .reviews-grid {
     grid-template-columns: 1fr;
