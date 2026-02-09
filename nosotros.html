@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nosotros - Pasiflora Café</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #4a4a4a;
+            background-color: #f9f7f4;
+        }
+
+        /* Sección Sobre Nosotros */
+        .sobre-nosotros {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .sobre-nosotros-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .sobre-nosotros-header h2 {
+            font-size: 2.5rem;
+            color: #2c5530;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .sobre-nosotros-header .subtitulo {
+            font-size: 1.2rem;
+            color: #7a6f5d;
+            font-style: italic;
+        }
+
+        /* Grid de contenido */
+        .sobre-nosotros-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .sobre-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .sobre-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .sobre-card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .sobre-card h3 {
+            color: #2c5530;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .sobre-card p {
+            color: #6b6b6b;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        /* Sección Historia */
+        .historia-section {
+            background: linear-gradient(135deg, #e8dcc4 0%, #f4ede1 100%);
+            padding: 60px 40px;
+            border-radius: 16px;
+            margin-bottom: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .historia-section::before {
+            content: '🌱';
+            position: absolute;
+            font-size: 120px;
+            opacity: 0.1;
+            top: -20px;
+            right: -20px;
+        }
+
+        .historia-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .historia-content h3 {
+            color: #2c5530;
+            font-size: 2rem;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .historia-content p {
+            color: #5a5a5a;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        /* Valores */
+        .valores-section {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .valores-section h3 {
+            color: #2c5530;
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        .valores-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .valor-item {
+            padding: 30px 20px;
+            background: white;
+            border-radius: 10px;
+            border-left: 4px solid #6b8e4e;
+            transition: all 0.3s ease;
+        }
+
+        .valor-item:hover {
+            background: #f5f3ed;
+            border-left-width: 8px;
+        }
+
+        .valor-item .icono {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .valor-item h4 {
+            color: #2c5530;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .valor-item p {
+            color: #6b6b6b;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* CTA Final */
+        .cta-section {
+            background: #2c5530;
+            color: white;
+            padding: 50px 30px;
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .cta-section h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: white;
+            color: #2c5530;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .cta-button:hover {
+            background: #e8dcc4;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sobre-nosotros-header h2 {
+                font-size: 2rem;
+            }
+
+            .sobre-nosotros-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .historia-section {
+                padding: 40px 25px;
+            }
+
+            .historia-content h3 {
+                font-size: 1.6rem;
+            }
+
+            .valores-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .cta-section h3 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body> <!-- Header / Navegación -->
+    <header class="header">
+        <div class="container">
+            <a href="/index.html">
+                <div class="logo">
+                    <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=100&h=100&fit=crop"
+                        alt="Passiflora Logo">
+                    <span>Pasiflora</span>
+                </div>
+            </a>
+            <nav class="nav">
+                <a href="index.html">Inicio</a>
+                <a href="menu.html">Menú</a>
+                <a href="nosotros.html">nosotros</a>
+            </nav>
+        </div>
+    </header>
+    <!-- Sección Sobre Nosotros -->
+    <section class="sobre-nosotros">
+        <!-- Header -->
+        <div class="sobre-nosotros-header">
+            <h2>Sobre Nosotros</h2>
+            <p class="subtitulo">Más que un café, un espacio para disfrutar</p>
+        </div>
+
+        <!-- Grid de información -->
+        <div class="sobre-nosotros-grid">
+            <div class="sobre-card">
+                <span class="sobre-card-icon">☕</span>
+                <h3>Café de Especialidad</h3>
+                <p>Trabajamos con granos seleccionados y métodos de extracción que resaltan los sabores únicos de cada
+                    origen. Cada taza es preparada con dedicación y conocimiento.</p>
+            </div>
+
+            <div class="sobre-card">
+                <span class="sobre-card-icon">🌱</span>
+                <h3>100% Plant-Based</h3>
+                <p>Todas nuestras opciones son aptas para veganos. Creemos en una gastronomía consciente que respeta a
+                    los animales y al planeta sin sacrificar sabor ni calidad.</p>
+            </div>
+
+            <div class="sobre-card">
+                <span class="sobre-card-icon">🏠</span>
+                <h3>Hecho en Casa</h3>
+                <p>Desde las medialunas hasta los postres, todo es elaborado artesanalmente por nosotros. Ingredientes
+                    naturales, recetas propias y mucho amor en cada preparación.</p>
+            </div>
+        </div>
+
+        <!-- Historia -->
+        <div class="historia-section">
+            <div class="historia-content">
+                <h3>Nuestra Historia</h3>
+                <p>Pasiflora nació del sueño de crear un espacio donde el café de calidad se encuentre con una propuesta
+                    gastronómica consciente y deliciosa. Un lugar donde cada detalle está pensado para que te sientas
+                    como en casa.</p>
+                <p>Nos inspira la pasión por el buen café, el respeto por los ingredientes y la alegría de compartir.
+                    Rodeados de plantas y con la calidez de un ambiente pensado para disfrutar sin apuro, queremos que
+                    cada visita sea una experiencia única.</p>
+                <p>Somos un proyecto familiar, atendido por sus dueños, donde cada cliente es recibido con la misma
+                    dedicación y cariño con la que preparamos cada producto.</p>
+            </div>
+        </div>
+
+        <!-- Valores -->
+        <div class="valores-section">
+            <h3>Nuestros Valores</h3>
+            <div class="valores-grid">
+                <div class="valor-item">
+                    <span class="icono">💚</span>
+                    <h4>Sustentabilidad</h4>
+                    <p>Compromiso con el ambiente en cada decisión</p>
+                </div>
+
+                <div class="valor-item">
+                    <span class="icono">✨</span>
+                    <h4>Calidad</h4>
+                    <p>Excelencia en cada taza y cada bocado</p>
+                </div>
+
+                <div class="valor-item">
+                    <span class="icono">🤝</span>
+                    <h4>Comunidad</h4>
+                    <p>Un espacio para conectar y compartir</p>
+                </div>
+
+                <div class="valor-item">
+                    <span class="icono">🌿</span>
+                    <h4>Consciente</h4>
+                    <p>Gastronomía ética y responsable</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section">
+            <h3>¿Listo para visitarnos?</h3>
+            <p>Te esperamos en Mendoza 1045, Rosario, para que disfrutes de nuestra propuesta</p>
+            <a href="menu.html" class="cta-button">Ver nuestro Menú</a>
+        </div>
+    </section>
+</body>
+
+</html>
